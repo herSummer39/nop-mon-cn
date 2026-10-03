@@ -388,6 +388,14 @@
       transition-delay: .26s
     }
 
+    .menu-wrap.open .dd a:nth-child(3) .row {
+      transition-delay: .34s
+    }
+
+    .menu-wrap.open .dd a:nth-child(4) .row {
+      transition-delay: .42s
+    }
+
     .dd .n {
       font-size: 12px;
       letter-spacing: .08em
@@ -434,12 +442,14 @@
       <button class="menu" id="menuBtn" aria-expanded="false" aria-controls="menuDd"><span
           class="mt"><span>Menu</span><span>Đóng</span></span></button>
       <nav class="dd" id="menuDd" aria-label="Chọn trang">
-        <a href="main1.html" data-page="main"><span class="row"><span class="n">01.</span><span class="t">Trang
+        <a href="index.html" data-page="main"><span class="row"><span class="n">01.</span><span class="t">Trang
               chính</span><span class="cur">•</span></span></a>
         <a href="cauchuyen-2.html" data-page="story"><span class="row"><span class="n">02.</span><span class="t">Câu
               chuyện album</span></span></a>
         <a href="cuon.html" data-page="cuon"><span class="row"><span class="n">03.</span><span class="t">Khám phá
               album</span></span></a>
+        <a href="camon.html" data-page="camon"><span class="row"><span class="n">04.</span><span class="t">Cảm
+              ơn</span></span></a>
       </nav>
     </div>
   </header>
@@ -536,7 +546,11 @@
     menuBtn.addEventListener('click', e => { e.stopPropagation(); setMenu(!window.MENU_OPEN); });
     document.addEventListener('click', e => { if (window.MENU_OPEN && !menuWrap.contains(e.target)) setMenu(false); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && window.MENU_OPEN) setMenu(false); }, true);
-    const MENU_GO = { story: () => goNext('cauchuyen-2.html#from-main'), cuon: () => goNext('cuon.html#from-main') };
+    const MENU_GO = {
+      story: () => goNext('cauchuyen-2.html#from-main'),
+      cuon: () => goNext('cuon.html#from-main'),
+      camon: () => goNext('camon.html#from-main')
+    };
     menuWrap.querySelectorAll('.dd a').forEach(a => {
       a.addEventListener('click', e => {
         e.preventDefault();
